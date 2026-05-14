@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router';
 
 const Navbar = () => {
   return (
@@ -24,19 +25,21 @@ const Navbar = () => {
         </div>
         <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">
-          <li><a>Item 1</a></li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2 bg-base-100 w-40 z-1">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </details>
+
+          <li><NavLink to={"/"} className={({ isActive }) =>
+            `font-semibold mr-2 ${isActive ? "text-green-500 border border-green-500" : ''}`}>Home</NavLink>
           </li>
-          <li><a>Item 3</a></li>
+
+          <li>
+            <NavLink to={'/books'} className={({ isActive }) =>
+              `font-semibold mr-2 ${isActive ? "text-green-500 border border-green-500" : ''}`}>Listed Books</NavLink>
+          </li>
+          <li>
+            <NavLink to={'/page-to-read'} className={({ isActive }) =>
+              `font-semibold mr-2 ${isActive ? "text-green-500 border border-green-500" : ''}`}>page to read</NavLink>
+          </li>
         </ul>
       </div>
       <div className="navbar-end">
